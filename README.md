@@ -24,6 +24,17 @@ Guidance for research reports delivered as HTML. It provides conventions for:
 - purposeful, labeled, accessible figures and plots; and
 - valid, self-contained, responsive HTML.
 
+### `visualization-design`
+
+A technology-agnostic visualization design layer that helps the agent:
+
+- choose charts based on analytical purpose, audience, and data structure;
+- represent uncertainty with error bars, intervals, and uncertainty bands;
+- surface caveats such as small samples, sampling bias, unstable estimates, and short backtest histories;
+- preserve honest scales, labels, units, denominators, and comparisons;
+- design for accessibility and the requested end product; and
+- route implementation choices to Python, notebooks, static HTML, TypeScript, dashboards, reports, or presentations.
+
 ## Installation
 
 Copy a skill folder into the Codex skills directory:
