@@ -1,0 +1,4 @@
+interface:
+  display_name: HTML Research Report
+  short_description: Build evidence-backed HTML research reports
+  default_prompt: Create a well-structured HTML research report with a linked table of contents, concise synthesis, purposeful figures, footnotes, and references.

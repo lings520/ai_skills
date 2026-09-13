@@ -1,0 +1,4 @@
+interface:
+  display_name: Task Quality Control
+  short_description: Keep work focused, accurate, reviewed, and clear
+  default_prompt: Apply focused scope control, verify important facts and figures, review the result, and present it clearly.
