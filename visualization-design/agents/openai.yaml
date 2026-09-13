@@ -1,0 +1,4 @@
+interface:
+  display_name: Visualization Design
+  short_description: Design clear, honest, decision-useful visualizations
+  default_prompt: Design and validate a visualization for the analytical purpose, audience, uncertainty, caveats, and requested end product.
