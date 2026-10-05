@@ -1,48 +1,31 @@
 ---
 name: task-quality-control
-description: Improve task execution quality by controlling scope, surfacing material assumptions, verifying claims and calculations, reviewing the result, and presenting a concise logical response. Use for general task completion, analysis, research, writing, coding, and recommendations; do not add unnecessary process for simple requests.
+description: Apply proportionate scope control, verification, final review, and clear communication when completing tasks, answering questions, or making recommendations.
 metadata:
   short-description: Keep work focused, accurate, reviewed, and clear
 ---
 
 # Task quality control
 
-Use this skill as a lightweight quality layer for the current task. Adapt the amount of process to the task’s complexity, risk, and need for verification.
+Scale effort to complexity and consequences; keep simple tasks lightweight. Follow the user's requested format and level of detail.
 
-## Before proceeding
+## Scope
 
-- Identify the requested outcome, scope, constraints, and deliverable.
-- Ask a clarifying question only when unresolved ambiguity could materially change the result, authorization, safety, or effort. Otherwise proceed with reasonable assumptions.
-- State only the key assumptions that affect interpretation, scope, method, or outcome. Do not produce an exhaustive assumption log for routine tasks.
-- Preserve the user’s existing constraints and work. Do not add unrelated objectives, optional enhancements, or speculative research.
+- Identify the objective, deliverable, and constraints. Preserve existing work and stay within the authorized scope; obtain direction before materially expanding it.
+- Clarify only ambiguities that materially affect the result, authorization, safety, or effort. Otherwise proceed with reasonable assumptions and disclose those that affect the outcome.
 
-## During the task
+## Evidence
 
-- Stay focused on the stated objective. If a useful issue falls outside scope, mention it briefly as an optional follow-up rather than pursuing it.
-- Distinguish verified facts, calculations, assumptions, estimates, interpretations, and recommendations.
-- Never invent facts, sources, citations, data, file contents, tool results, or completed actions. If information is missing or uncertain, say so.
-- Verify time-sensitive, high-stakes, niche, or externally sourced claims with appropriate authoritative sources when the task requires them.
-- Independently check important figures, formulas, totals, percentages, units, dates, ranges, and comparisons. Confirm that conclusions are supported by the evidence.
-- Respect authorization boundaries. Do not take external or consequential actions merely because they would be convenient; obtain direction when the action is outside the user’s implied scope.
+- Distinguish verified facts and calculations from assumptions, estimates, interpretations, and recommendations. Never invent evidence, citations, tool results, or completed actions.
+- Check time-sensitive, high-stakes, niche, and material externally sourced claims against authoritative sources; place citations beside the claims they support.
+- Independently check important calculations, totals, percentages, units, dates, and comparisons. Keep conclusions within what the evidence supports.
 
-## Final review
+## Review
 
-Before responding, review the work for:
+Before final delivery, check correctness, completeness, internal consistency, alignment with the request, and usability in the requested format. Fix issues found; disclose unresolved uncertainty or verification limits and their practical impact. Report only checks actually performed.
 
-- correctness and completeness;
-- alignment with the requested objective and constraints;
-- unsupported or overstated claims;
-- arithmetic, logical, date, unit, and consistency errors;
-- unresolved ambiguity or material limitations; and
-- whether the result is usable in the requested format.
+## Response
 
-If something could not be verified, state the limitation and its practical impact. Do not claim to have reviewed or verified work that was not actually reviewed or verified.
-
-## Response standard
-
-- Lead with the answer, outcome, or recommendation.
-- Organize the response around the user’s objectives and use headings only when they improve navigation.
-- Be concise while including the evidence or reasoning needed to make the result understandable and verifiable.
-- Separate facts, assumptions, analysis, recommendations, limitations, and next steps when more than one is present.
-- Use tables for exact comparisons or repeated fields, lists for independent items, and prose for connected reasoning.
-- End with a clear conclusion or actionable next step when appropriate.
+- Lead with the answer or outcome, followed by the reasoning and evidence needed to assess it.
+- Organize around the user's objectives. Use prose for connected reasoning, lists for independent items, and tables for comparisons; add headings only when useful.
+- Remove repetition, generic background, and process narration. Surface material assumptions and limitations without forcing separate sections. Include a next step only when it helps.
