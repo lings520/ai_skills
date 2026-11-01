@@ -35,9 +35,9 @@ A technology-agnostic visualization design layer that helps the agent:
 - design for accessibility and the requested end product; and
 - route implementation choices to Python, notebooks, static HTML, TypeScript, dashboards, reports, or presentations.
 
-### `code-review`
+### Engineering: `code-review`
 
-Adapted from [Matt Pocock's code-review skill](https://github.com/mattpocock/skills/tree/main/skills/engineering/code-review), with its [MIT notice](code-review/LICENSE) preserved. It reviews:
+Adapted from [Matt Pocock's code-review skill](https://github.com/mattpocock/skills/tree/main/skills/engineering/code-review), with its [MIT notice](engineering/code-review/LICENSE) preserved. It reviews:
 
 - staged, unstaged, and all uncommitted changes, including untracked files where requested;
 - exact commit-to-commit differences or branch/PR changes since their merge base;
@@ -50,7 +50,7 @@ Scope-command regression tests: `python3 -m unittest discover -s tests -p 'test_
 
 ## Installation
 
-Copy a skill folder into the Codex skills directory:
+Copy the individual skill folder into the Codex skills directory. For example, copy `engineering/code-review` as `code-review`:
 
 ```text
 %USERPROFILE%\\.codex\\skills\\<skill-name>

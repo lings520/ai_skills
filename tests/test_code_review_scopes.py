@@ -8,13 +8,15 @@ from pathlib import Path
 import subprocess
 import tempfile
 import unittest
+from unittest.mock import patch
 
 
 def git(repo, *args, allowed=(0,)):
     result = subprocess.run(
         ["git", "--no-optional-locks", "-c", "core.autocrlf=false", "-c", "core.hooksPath=" + os.devnull, *args],
         cwd=repo, capture_output=True, text=True, encoding="utf-8",
-        env={**os.environ, "GIT_CONFIG_NOSYSTEM": "1", "GIT_CONFIG_GLOBAL": os.devnull},
+        env={**{k: v for k, v in os.environ.items() if not k.startswith("GIT_")},
+             "GIT_CONFIG_NOSYSTEM": "1", "GIT_CONFIG_GLOBAL": os.devnull},
     )
     if result.returncode not in allowed:
         raise AssertionError(f"git {args!r}: {result.returncode}\n{result.stderr}")
@@ -68,6 +70,27 @@ def build_fixture(repo):
     write(repo, "untracked helper.py", "VALUE = 42\n")
     write(repo, "ignored.secret", "SYNTHETIC_PLACEHOLDER\n")
     return {"root": root, "tip": tip, "base": base}
+
+
+class GitIsolation(unittest.TestCase):
+    def test_inherited_git_environment_does_not_redirect_fixture(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            caller = Path(tmp) / "caller"
+            fixture = Path(tmp) / "fixture"
+            init(caller)
+            init(fixture)
+            write(caller, "sentinel.txt", "keep")
+            git(caller, "add", "sentinel.txt")
+            before = git(caller, "ls-files", "--stage")
+            overrides = {"GIT_DIR": str(caller / ".git"),
+                         "GIT_WORK_TREE": str(caller),
+                         "GIT_INDEX_FILE": str(caller / ".git" / "index")}
+            with patch.dict(os.environ, overrides):
+                self.assertEqual(Path(git(fixture, "rev-parse", "--show-toplevel").strip()), fixture)
+                write(fixture, "fixture.txt", "fixture")
+                git(fixture, "add", "fixture.txt")
+            self.assertEqual(git(caller, "ls-files", "--stage"), before)
+            self.assertEqual(git(fixture, "ls-files").strip(), "fixture.txt")
 
 
 class ReviewScopes(unittest.TestCase):
