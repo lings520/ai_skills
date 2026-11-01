@@ -35,9 +35,22 @@ A technology-agnostic visualization design layer that helps the agent:
 - design for accessibility and the requested end product; and
 - route implementation choices to Python, notebooks, static HTML, TypeScript, dashboards, reports, or presentations.
 
+### Engineering: `code-review`
+
+Adapted from [Matt Pocock's code-review skill](https://github.com/mattpocock/skills/tree/main/skills/engineering/code-review), with its [MIT notice](engineering/code-review/LICENSE) preserved. It reviews:
+
+- staged, unstaged, and all uncommitted changes, including untracked files where requested;
+- exact commit-to-commit differences or branch/PR changes since their merge base;
+- project standards and intended behaviour as separate axes, with evidence-backed findings; and
+- the correct staged or historical file versions without changing the working tree.
+
+No issue tracker is required. Review requests do not authorize fixes, commits, or posted reviews. Examples: “review staged changes”, “review all my local changes”, or “compare commits A and B”.
+
+Scope-command regression tests: `python3 -m unittest discover -s tests -p 'test_code_review_scopes.py' -v`. These verify Git selection semantics, not model review quality.
+
 ## Installation
 
-Copy a skill folder into the Codex skills directory:
+Copy the individual skill folder into the Codex skills directory. For example, copy `engineering/code-review` as `code-review`:
 
 ```text
 %USERPROFILE%\\.codex\\skills\\<skill-name>
